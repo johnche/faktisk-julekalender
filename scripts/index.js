@@ -17,8 +17,7 @@ const getSnowflake = (className) => {
 
 	snowflake.style.left = `${random(-5, 105)}vw`;
 	snowflake.style.marginTop = '-40px';
-	//snowflake.style.animation = unequalRandom() ? animation1 : animation2;
-	snowflake.style.animationDelay = `${Math.random()*-10}s`
+	snowflake.style.animationDelay = `${Math.random()*-5}s`
 	return snowflake;
 };
 

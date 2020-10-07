@@ -10,28 +10,32 @@ html, body {
 
 .backgroundFlake {
 	background: #333C40;
-	animation: fall 8s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+	animation: fall 10s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+	z-index: 10;
 }
 
 .semibackgroundFlake {
 	background: #283866;
 	animation: fall 6s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+	z-index: 20;
 }
 
 .semiforegroundFlake {
 	background: #75A5CC;
 	animation: fall 4s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+	z-index: 30;
 }
 
 .foregroundFlake {
 	background: white;
 	animation: fall 3s cubic-bezier(0.1, 0.1, 0.1, 0.1) infinite;
+	z-index: 40;
 }
 
 .drop {
 	//background: white;
-	width: 3px;
-	height: 3px;
+	width: 1px;
+	height: 1px;
 	border-radius: 0px;
 	position: absolute;
 }
@@ -51,4 +55,14 @@ html, body {
 		margin-top: 150vh;
 		opacity: 0;
 	}
+}
+
+.houses {
+	background-image: url("../assets/houses.png");
+	background-repeat: repeat-x;
+	z-index: 25;
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	height: 128px;
 }
