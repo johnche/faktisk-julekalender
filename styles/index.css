@@ -81,8 +81,10 @@ html, body {
   background-image: url("../assets/houses.png");
   background-repeat: repeat-x;
   background-size: contain;
+  background-position: bottom;
   z-index: 25;
   position: fixed;
+  padding: 0;
   bottom: 0;
   left: -10%;
   width: 120vw;
