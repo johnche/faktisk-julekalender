@@ -7,21 +7,68 @@ html, body {
   --pixel-size: 2;
 }
 
-.santa {
+.santaDeers {
+  height: calc(48px * var(--pixel-size));
+  width: calc(calc(1120px/5) * var(--pixel-size));
   position: absolute;
+  overflow: hidden;
   margin-left: 35vw;
   margin-top: 20vh;
+}
+
+.santaDeersSprites {
+  z-index: 25;
   height: calc(48px * var(--pixel-size));
-  width: calc(230px * var(--pixel-size));
+  width: calc(1120px * var(--pixel-size));
+  -webkit-animation: moveLeft 500ms steps(5) infinite;
+          animation: moveLeft 500ms steps(5) infinite;
+}
+
+.santaJump {
+  height: calc(48px * var(--pixel-size));
+  width: calc(calc(320px/10) * var(--pixel-size));
+  position: absolute;
   overflow: hidden;
 }
 
-.santaSprites {
+.santaJumpSprites {
   z-index: 25;
-  -webkit-animation: moveLeft 1s steps(5) infinite;
-          animation: moveLeft 1s steps(5) infinite;
   height: calc(48px * var(--pixel-size));
-  width: calc(1120px * var(--pixel-size));
+  width: calc(320px * var(--pixel-size));
+  -webkit-animation: moveLeft 500ms steps(10) infinite;
+          animation: moveLeft 500ms steps(10) infinite;
+}
+
+.santaLookaround {
+  height: calc(48px * var(--pixel-size));
+  width: calc(calc(96px/3) * var(--pixel-size));
+  position: absolute;
+  overflow: hidden;
+  margin-top: 20vh;
+}
+
+.santaLookaroundSprites {
+  z-index: 25;
+  height: calc(48px * var(--pixel-size));
+  width: calc(96px * var(--pixel-size));
+  -webkit-animation: moveLeft 500ms steps(3) infinite;
+          animation: moveLeft 500ms steps(3) infinite;
+}
+
+.santaFall {
+  height: calc(48px * var(--pixel-size));
+  width: calc(calc(64px/2) * var(--pixel-size));
+  position: absolute;
+  overflow: hidden;
+  margin-top: 40vh;
+}
+
+.santaFallSprites {
+  z-index: 25;
+  height: calc(48px * var(--pixel-size));
+  width: calc(64px * var(--pixel-size));
+  -webkit-animation: moveLeft 500ms steps(2) infinite;
+          animation: moveLeft 500ms steps(2) infinite;
 }
 
 @-webkit-keyframes moveLeft {
@@ -79,8 +126,8 @@ html, body {
 .foregroundFlake {
   z-index: 40;
   background: white;
-  -webkit-animation: fall 3s cubic-bezier(0.1, 0.1, 0.1, 0.1) infinite;
-          animation: fall 3s cubic-bezier(0.1, 0.1, 0.1, 0.1) infinite;
+  -webkit-animation: fall 3s cubic-bezier(0, 1, 1, 0) infinite;
+          animation: fall 3s cubic-bezier(0, 1, 1, 0) infinite;
 }
 
 .drop {
