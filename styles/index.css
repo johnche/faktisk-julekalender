@@ -3,7 +3,50 @@ html, body {
   overflow: hidden;
 }
 
-.parent {
+:root {
+  --pixel-size: 2;
+}
+
+.santa {
+  position: absolute;
+  margin-left: 35vw;
+  margin-top: 20vh;
+  height: calc(48px * var(--pixel-size));
+  width: calc(230px * var(--pixel-size));
+  overflow: hidden;
+}
+
+.santaSprites {
+  z-index: 25;
+  -webkit-animation: moveLeft 1s steps(5) infinite;
+          animation: moveLeft 1s steps(5) infinite;
+  height: calc(48px * var(--pixel-size));
+  width: calc(1120px * var(--pixel-size));
+}
+
+@-webkit-keyframes moveLeft {
+  from {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  to {
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+}
+
+@keyframes moveLeft {
+  from {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  to {
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+}
+
+#cloud {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,31 +56,31 @@ html, body {
 }
 
 .backgroundFlake {
+  z-index: 10;
   background: #333C40;
   -webkit-animation: fall 10s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
           animation: fall 10s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
-  z-index: 10;
 }
 
 .semibackgroundFlake {
+  z-index: 20;
   background: #283866;
   -webkit-animation: fall 6s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
           animation: fall 6s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
-  z-index: 20;
 }
 
 .semiforegroundFlake {
+  z-index: 30;
   background: #75A5CC;
   -webkit-animation: fall 4s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
           animation: fall 4s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
-  z-index: 30;
 }
 
 .foregroundFlake {
+  z-index: 40;
   background: white;
   -webkit-animation: fall 3s cubic-bezier(0.1, 0.1, 0.1, 0.1) infinite;
           animation: fall 3s cubic-bezier(0.1, 0.1, 0.1, 0.1) infinite;
-  z-index: 40;
 }
 
 .drop {
@@ -78,11 +121,11 @@ html, body {
 }
 
 .houses {
+  z-index: 25;
   background-image: url("../assets/houses.png");
   background-repeat: repeat-x;
   background-size: contain;
   background-position: bottom;
-  z-index: 25;
   position: fixed;
   padding: 0;
   bottom: 0;
@@ -90,6 +133,9 @@ html, body {
   width: 120vw;
   height: 10vh;
   resize: both;
+}
+
+.scaledPixelart {
   -ms-interpolation-mode: nearest-neighbor;
       image-rendering: -webkit-optimize-contrast;
       image-rendering: -o-pixelated;

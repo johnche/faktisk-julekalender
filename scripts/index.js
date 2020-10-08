@@ -21,8 +21,13 @@ const getSnowflake = (className) => {
 	return snowflake;
 };
 
-const cloud = document.getElementById('cloud');
-const numFlakes = 400;
-for (let i = 0; i < numFlakes; i++) {
-	cloud.appendChild(getSnowflake('drop'));
+function main() {
+	const cloud = document.getElementById('cloud');
+	//const numFlakes = 400;
+	const numFlakes = 400;
+	for (let i = 0; i < numFlakes; i++) {
+		cloud.appendChild(getSnowflake('drop'));
+	}
 }
+
+main();
