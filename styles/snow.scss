@@ -1,0 +1,59 @@
+@import 'layers';
+
+#cloud {
+	display: flex;
+	justify-content: center;
+}
+
+.backgroundFlake {
+	@include background;
+	background: #333C40;
+	animation: fall 10s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+}
+
+.semibackgroundFlake {
+	@include semibackground;
+	background: #283866;
+	animation: fall 6s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+}
+
+.semiforegroundFlake {
+	@include semiforeground;
+	background: #75A5CC;
+	animation: fall 4s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+}
+
+.foregroundFlake {
+	@include foreground;
+	background: white;
+	animation: fall 3s cubic-bezier(0.1, 0.1, 0.1, 0.1) infinite;
+}
+
+.drop {
+	width: 4px;
+	height: 4px;
+	border-radius: 0px;
+	position: absolute;
+}
+
+@keyframes fall {
+	0% {
+		margin-top: -50px;
+		opacity: 1;
+	}
+
+	60% {
+		opacity: 1;
+		margin-left: 45px;
+	}
+
+	100% {
+		margin-top: 150vh;
+		opacity: 0;
+	}
+}
+
+@keyframes oscillate {
+	to { transform: translateY(100px)}
+}
+

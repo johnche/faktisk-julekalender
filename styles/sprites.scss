@@ -1,0 +1,114 @@
+@import 'layers';
+
+:root {
+	--pixel-size: 2;
+	--frame-duration: 100ms;
+}
+
+@mixin santaContainer($imageWidth, $imageHeight, $numFrames) {
+	@include middleground;
+	height: calc(#{$imageHeight} * var(--pixel-size));
+	width: calc(calc(#{$imageWidth}/#{$numFrames}) * var(--pixel-size));
+	position: absolute;
+	overflow: hidden;
+}
+
+@mixin santaSprites($imageWidth, $imageHeight, $numFrames) {
+	@include middleground;
+	height: calc(#{$imageHeight} * var(--pixel-size));
+	width: calc(#{$imageWidth} * var(--pixel-size));
+	animation: moveLeft calc(var(--frame-duration) * #{$numFrames}) steps(#{$numFrames}) infinite;
+}
+
+.santaDeers {
+	$width: 1120px;
+	$height: 48px;
+	$frames: 5;
+
+	@include santaContainer($width, $height, $frames);
+	margin-left: 35vw;
+	margin-top: 20vh;
+
+	.santaDeersSprites {
+		@include santaSprites($width, $height, $frames)
+	}
+}
+
+.santaJump {
+	$width: 320px;
+	$height: 48px;
+	$frames: 10;
+
+	@include santaContainer($width, $height, $frames);
+
+	.santaJumpSprites {
+		@include santaSprites($width, $height, $frames);
+	}
+}
+
+.santaLookaround {
+	$width: 96px;
+	$height: 48px;
+	$frames: 3;
+
+	@include santaContainer($width, $height, $frames);
+	margin-top: 20vh;
+
+	.santaLookaroundSprites {
+		@include santaSprites($width, $height, $frames);
+	}
+}
+
+.santaFall {
+	$width: 64px;
+	$height: 48px;
+	$frames: 2;
+
+	@include santaContainer($width, $height, $frames);
+	margin-top: 40vh;
+
+	.santaFallSprites {
+		@include santaSprites($width, $height, $frames);
+	}
+}
+
+.santaBrake {
+	$width: 12912px;
+	$height: 96px;
+	$frames: 58;
+
+	@include santaContainer($width, $height, $frames);
+	margin-top: 60vh;
+
+	.santaBrakeSprites {
+		@include santaSprites($width, $height, $frames);
+	}
+}
+
+@keyframes moveLeft {
+	from {
+		transform: translate(0, 0);
+	}
+	to {
+		transform: translate(-100%, 0);
+	}
+}
+
+.houses {
+	@include middleground;
+	background-image: url("../assets/houses.png");
+	background-repeat: repeat-x;
+	background-size: contain;
+	background-position: bottom;
+	position: fixed;
+	padding: 0;
+
+	// positioning
+	bottom: 0;
+	left: -10%;
+
+	// sizing
+	width: 120vw;
+	height: 10vh;
+	resize: both;
+}

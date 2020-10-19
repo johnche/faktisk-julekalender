@@ -1,0 +1,19 @@
+@mixin background {
+	z-index: -1;
+}
+
+@mixin semibackground {
+	z-index: 10;
+}
+
+@mixin middleground {
+	z-index: 20;
+}
+
+@mixin semiforeground {
+	z-index: 30;
+}
+
+@mixin foreground {
+	z-index: 40;
+}

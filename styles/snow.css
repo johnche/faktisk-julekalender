@@ -1,0 +1,88 @@
+#cloud {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.backgroundFlake {
+  z-index: -1;
+  background: #333C40;
+  -webkit-animation: fall 10s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+          animation: fall 10s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+}
+
+.semibackgroundFlake {
+  z-index: 10;
+  background: #283866;
+  -webkit-animation: fall 6s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+          animation: fall 6s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+}
+
+.semiforegroundFlake {
+  z-index: 30;
+  background: #75A5CC;
+  -webkit-animation: fall 4s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+          animation: fall 4s cubic-bezier(0.4, 0.2, 0.4, 0.7) infinite;
+}
+
+.foregroundFlake {
+  z-index: 40;
+  background: white;
+  -webkit-animation: fall 3s cubic-bezier(0.1, 0.1, 0.1, 0.1) infinite;
+          animation: fall 3s cubic-bezier(0.1, 0.1, 0.1, 0.1) infinite;
+}
+
+.drop {
+  width: 4px;
+  height: 4px;
+  border-radius: 0px;
+  position: absolute;
+}
+
+@-webkit-keyframes fall {
+  0% {
+    margin-top: -50px;
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    margin-left: 45px;
+  }
+  100% {
+    margin-top: 150vh;
+    opacity: 0;
+  }
+}
+
+@keyframes fall {
+  0% {
+    margin-top: -50px;
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    margin-left: 45px;
+  }
+  100% {
+    margin-top: 150vh;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes oscillate {
+  to {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+}
+
+@keyframes oscillate {
+  to {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+}
+/*# sourceMappingURL=snow.css.map */

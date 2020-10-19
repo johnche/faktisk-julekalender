@@ -1,0 +1,127 @@
+:root {
+  --pixel-size: 2;
+  --frame-duration: 100ms;
+}
+
+.santaDeers {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(calc(1120px/5) * var(--pixel-size));
+  position: absolute;
+  overflow: hidden;
+  margin-left: 35vw;
+  margin-top: 20vh;
+}
+
+.santaDeers .santaDeersSprites {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(1120px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 5) steps(5) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 5) steps(5) infinite;
+}
+
+.santaJump {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(calc(320px/10) * var(--pixel-size));
+  position: absolute;
+  overflow: hidden;
+}
+
+.santaJump .santaJumpSprites {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(320px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 10) steps(10) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 10) steps(10) infinite;
+}
+
+.santaLookaround {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(calc(96px/3) * var(--pixel-size));
+  position: absolute;
+  overflow: hidden;
+  margin-top: 20vh;
+}
+
+.santaLookaround .santaLookaroundSprites {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(96px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 3) steps(3) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 3) steps(3) infinite;
+}
+
+.santaFall {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(calc(64px/2) * var(--pixel-size));
+  position: absolute;
+  overflow: hidden;
+  margin-top: 40vh;
+}
+
+.santaFall .santaFallSprites {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(64px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 2) steps(2) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 2) steps(2) infinite;
+}
+
+.santaBrake {
+  z-index: 20;
+  height: calc(96px * var(--pixel-size));
+  width: calc(calc(12912px/58) * var(--pixel-size));
+  position: absolute;
+  overflow: hidden;
+  margin-top: 60vh;
+}
+
+.santaBrake .santaBrakeSprites {
+  z-index: 20;
+  height: calc(96px * var(--pixel-size));
+  width: calc(12912px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 58) steps(58) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 58) steps(58) infinite;
+}
+
+@-webkit-keyframes moveLeft {
+  from {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  to {
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+}
+
+@keyframes moveLeft {
+  from {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  to {
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+}
+
+.houses {
+  z-index: 20;
+  background-image: url("../assets/houses.png");
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: bottom;
+  position: fixed;
+  padding: 0;
+  bottom: 0;
+  left: -10%;
+  width: 120vw;
+  height: 10vh;
+  resize: both;
+}
+/*# sourceMappingURL=sprites.css.map */
