@@ -1,24 +1,18 @@
-:root {
-  --pixel-size: 2;
-  --frame-duration: 100ms;
-}
-
-.santaDeers {
+.santaPrepare {
   z-index: 20;
-  height: calc(48px * var(--pixel-size));
-  width: calc(calc(1120px/5) * var(--pixel-size));
+  height: calc(64px * var(--pixel-size));
+  width: calc(calc(1568px/7) * var(--pixel-size));
   position: absolute;
   overflow: hidden;
-  margin-left: 35vw;
-  margin-top: 20vh;
+  margin-top: 80vh;
 }
 
-.santaDeers .santaDeersSprites {
+.santaPrepare .santaPrepareSprites {
   z-index: 20;
-  height: calc(48px * var(--pixel-size));
-  width: calc(1120px * var(--pixel-size));
-  -webkit-animation: moveLeft calc(var(--frame-duration) * 5) steps(5) infinite;
-          animation: moveLeft calc(var(--frame-duration) * 5) steps(5) infinite;
+  height: calc(64px * var(--pixel-size));
+  width: calc(1568px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 7) steps(7) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 7) steps(7) infinite;
 }
 
 .santaJump {
@@ -37,27 +31,27 @@
           animation: moveLeft calc(var(--frame-duration) * 10) steps(10) infinite;
 }
 
-.santaLookaround {
+.santaRide {
   z-index: 20;
   height: calc(48px * var(--pixel-size));
-  width: calc(calc(96px/3) * var(--pixel-size));
+  width: calc(calc(1136px/5) * var(--pixel-size));
   position: absolute;
   overflow: hidden;
   margin-top: 20vh;
 }
 
-.santaLookaround .santaLookaroundSprites {
+.santaRide .santaRideSprites {
   z-index: 20;
   height: calc(48px * var(--pixel-size));
-  width: calc(96px * var(--pixel-size));
-  -webkit-animation: moveLeft calc(var(--frame-duration) * 3) steps(3) infinite;
-          animation: moveLeft calc(var(--frame-duration) * 3) steps(3) infinite;
+  width: calc(1136px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 5) steps(5) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 5) steps(5) infinite;
 }
 
 .santaFall {
   z-index: 20;
-  height: calc(48px * var(--pixel-size));
-  width: calc(calc(64px/2) * var(--pixel-size));
+  height: calc(96px * var(--pixel-size));
+  width: calc(calc(3136px/14) * var(--pixel-size));
   position: absolute;
   overflow: hidden;
   margin-top: 40vh;
@@ -65,16 +59,16 @@
 
 .santaFall .santaFallSprites {
   z-index: 20;
-  height: calc(48px * var(--pixel-size));
-  width: calc(64px * var(--pixel-size));
-  -webkit-animation: moveLeft calc(var(--frame-duration) * 2) steps(2) infinite;
-          animation: moveLeft calc(var(--frame-duration) * 2) steps(2) infinite;
+  height: calc(96px * var(--pixel-size));
+  width: calc(3136px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 14) steps(14) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 14) steps(14) infinite;
 }
 
 .santaBrake {
   z-index: 20;
-  height: calc(96px * var(--pixel-size));
-  width: calc(calc(12912px/58) * var(--pixel-size));
+  height: calc(64px * var(--pixel-size));
+  width: calc(calc(7088px/31) * var(--pixel-size));
   position: absolute;
   overflow: hidden;
   margin-top: 60vh;
@@ -82,10 +76,99 @@
 
 .santaBrake .santaBrakeSprites {
   z-index: 20;
-  height: calc(96px * var(--pixel-size));
-  width: calc(12912px * var(--pixel-size));
-  -webkit-animation: moveLeft calc(var(--frame-duration) * 58) steps(58) infinite;
-          animation: moveLeft calc(var(--frame-duration) * 58) steps(58) infinite;
+  height: calc(64px * var(--pixel-size));
+  width: calc(7088px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 31) steps(31) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 31) steps(31) infinite;
+}
+
+.santaBrake1 {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(calc(224px/1) * var(--pixel-size));
+  position: absolute;
+  overflow: hidden;
+  margin-left: 65vw;
+}
+
+.santaBrake1 .santaBrake1Sprites {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(224px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 1) steps(1) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 1) steps(1) infinite;
+}
+
+.santaBrake2 {
+  margin-top: 20vh;
+  margin-left: 35vw;
+  z-index: 20;
+  height: calc(20300px * var(--pixel-size));
+  width: calc(calc(640px/57) * var(--pixel-size));
+  position: absolute;
+  background-color: papayawhip;
+}
+
+.santaBrake2 .santaBrake2Sprites {
+  z-index: 20;
+  height: calc(20300px * var(--pixel-size));
+  width: calc(640px * var(--pixel-size));
+  -webkit-animation: moveUp calc(var(--frame-duration) * 57) steps(57) infinite;
+          animation: moveUp calc(var(--frame-duration) * 57) steps(57) infinite;
+}
+
+.santaBrake3 {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(calc(1664px/8) * var(--pixel-size));
+  position: absolute;
+  overflow: hidden;
+  margin-top: 40vh;
+  margin-left: 65vw;
+}
+
+.santaBrake3 .santaBrake3Sprites {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(1664px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 8) steps(8) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 8) steps(8) infinite;
+}
+
+.santaBrake4 {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(calc(448px/2) * var(--pixel-size));
+  position: absolute;
+  overflow: hidden;
+  margin-top: 60vh;
+  margin-left: 65vw;
+}
+
+.santaBrake4 .santaBrake4Sprites {
+  z-index: 20;
+  height: calc(48px * var(--pixel-size));
+  width: calc(448px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 2) steps(2) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 2) steps(2) infinite;
+}
+
+.santaBrake5 {
+  z-index: 20;
+  height: calc(64px * var(--pixel-size));
+  width: calc(calc(4288px/18) * var(--pixel-size));
+  position: absolute;
+  overflow: hidden;
+  margin-top: 80vh;
+  margin-left: 65vw;
+}
+
+.santaBrake5 .santaBrake5Sprites {
+  z-index: 20;
+  height: calc(64px * var(--pixel-size));
+  width: calc(4288px * var(--pixel-size));
+  -webkit-animation: moveLeft calc(var(--frame-duration) * 18) steps(18) infinite;
+          animation: moveLeft calc(var(--frame-duration) * 18) steps(18) infinite;
 }
 
 @-webkit-keyframes moveLeft {
@@ -107,6 +190,28 @@
   to {
     -webkit-transform: translate(-100%, 0);
             transform: translate(-100%, 0);
+  }
+}
+
+@-webkit-keyframes moveUp {
+  from {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  to {
+    -webkit-transform: translate(0, -100%);
+            transform: translate(0, -100%);
+  }
+}
+
+@keyframes moveUp {
+  from {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  to {
+    -webkit-transform: translate(0, -100%);
+            transform: translate(0, -100%);
   }
 }
 

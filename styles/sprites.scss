@@ -1,10 +1,5 @@
 @import 'layers';
 
-:root {
-	--pixel-size: 2;
-	--frame-duration: 100ms;
-}
-
 @mixin santaContainer($imageWidth, $imageHeight, $numFrames) {
 	@include middleground;
 	height: calc(#{$imageHeight} * var(--pixel-size));
@@ -20,16 +15,15 @@
 	animation: moveLeft calc(var(--frame-duration) * #{$numFrames}) steps(#{$numFrames}) infinite;
 }
 
-.santaDeers {
-	$width: 1120px;
-	$height: 48px;
-	$frames: 5;
+.santaPrepare {
+	$width: 1568px;
+	$height: 64px;
+	$frames: 7;
 
 	@include santaContainer($width, $height, $frames);
-	margin-left: 35vw;
-	margin-top: 20vh;
+	margin-top: 80vh;
 
-	.santaDeersSprites {
+	.santaPrepareSprites {
 		@include santaSprites($width, $height, $frames)
 	}
 }
@@ -46,23 +40,23 @@
 	}
 }
 
-.santaLookaround {
-	$width: 96px;
+.santaRide {
+	$width: 1136px;
 	$height: 48px;
-	$frames: 3;
+	$frames: 5;
 
 	@include santaContainer($width, $height, $frames);
 	margin-top: 20vh;
 
-	.santaLookaroundSprites {
+	.santaRideSprites {
 		@include santaSprites($width, $height, $frames);
 	}
 }
 
 .santaFall {
-	$width: 64px;
-	$height: 48px;
-	$frames: 2;
+	$width: 3136px;
+	$height: 96px;
+	$frames: 14;
 
 	@include santaContainer($width, $height, $frames);
 	margin-top: 40vh;
@@ -73,14 +67,95 @@
 }
 
 .santaBrake {
-	$width: 12912px;
-	$height: 96px;
-	$frames: 58;
+	$width: 7088px;
+	$height: 64px;
+	$frames: 31;
 
 	@include santaContainer($width, $height, $frames);
 	margin-top: 60vh;
 
 	.santaBrakeSprites {
+		@include santaSprites($width, $height, $frames);
+	}
+}
+
+.santaBrake1 {
+	$width: 224px;
+	$height: 48px;
+	$frames: 1;
+
+	@include santaContainer($width, $height, $frames);
+	//margin-top: 60vh;
+	margin-left: 65vw;
+
+	.santaBrake1Sprites {
+		@include santaSprites($width, $height, $frames);
+	}
+}
+
+.santaBrake2 {
+	$width: 640px;
+	$height: 20300px;
+	$frames: 57;
+
+	//@include santaContainer($width, $height, $frames);
+	margin-top: 20vh;
+	margin-left: 35vw;
+
+	@include middleground;
+	height: calc(#{$height} * var(--pixel-size));
+	width: calc(calc(#{$width}/#{$frames}) * var(--pixel-size));
+	position: absolute;
+	background-color: papayawhip;
+	//overflow: hidden;
+
+	.santaBrake2Sprites {
+		//@include santaSprites($width, $height, $frames);
+	@include middleground;
+	height: calc(#{$height} * var(--pixel-size));
+	width: calc(#{$width} * var(--pixel-size));
+	animation: moveUp calc(var(--frame-duration) * #{$frames}) steps(#{$frames}) infinite;
+	}
+}
+
+.santaBrake3 {
+	$width: 1664px;
+	$height: 48px;
+	$frames: 8;
+
+	@include santaContainer($width, $height, $frames);
+	margin-top: 40vh;
+	margin-left: 65vw;
+
+	.santaBrake3Sprites {
+		@include santaSprites($width, $height, $frames);
+	}
+}
+
+.santaBrake4 {
+	$width: 448px;
+	$height: 48px;
+	$frames: 2;
+
+	@include santaContainer($width, $height, $frames);
+	margin-top: 60vh;
+	margin-left: 65vw;
+
+	.santaBrake4Sprites {
+		@include santaSprites($width, $height, $frames);
+	}
+}
+
+.santaBrake5 {
+	$width: 4288px;
+	$height: 64px;
+	$frames: 18;
+
+	@include santaContainer($width, $height, $frames);
+	margin-top: 80vh;
+	margin-left: 65vw;
+
+	.santaBrake5Sprites {
 		@include santaSprites($width, $height, $frames);
 	}
 }
@@ -91,6 +166,15 @@
 	}
 	to {
 		transform: translate(-100%, 0);
+	}
+}
+
+@keyframes moveUp {
+	from {
+		transform: translate(0, 0);
+	}
+	to {
+		transform: translate(0, -100%);
 	}
 }
 

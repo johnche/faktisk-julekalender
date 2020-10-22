@@ -1,6 +1,17 @@
-html, body {
-  background: #2E2E6E;
+html {
+  background-color: #272537;
+  background-size: cover;
+}
+
+body {
+  margin: 0;
   overflow: hidden;
+}
+
+:root {
+  --pixel-size: 4;
+  --frame-duration: 100ms;
+  --size-multiplier: 2.0;
 }
 
 .pixelart {
@@ -10,5 +21,47 @@ html, body {
       image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+}
+
+div.button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+button.start {
+  z-index: 30;
+  height: 5vh;
+  width: calc(5vh*80/23);
+  border: 0;
+  background-color: #FFFFFF00;
+  background-image: url(../assets/button_up.png);
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+button.start:hover {
+  cursor: pointer;
+}
+
+button.start:active {
+  background-image: url(../assets/button_down.png);
+}
+
+canvas {
+  z-index: 20;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: -o-pixelated;
+      image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  width: calc(700px * var(--size-multiplier));
+  height: calc(700px * var(--size-multiplier));
 }
 /*# sourceMappingURL=index.css.map */

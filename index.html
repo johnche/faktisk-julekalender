@@ -1,31 +1,51 @@
 <!DOCTYPE HTML>
-<head></head>
-<link rel="stylesheet" href="./styles/index.css" />
-<link rel="stylesheet" href="./styles/snow.css" />
-<link rel="stylesheet" href="./styles/sprites.css" />
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/snow.css" />
+    <link rel="stylesheet" href="./styles/sprites.css" />
+</head>
+
 <body>
     <div class="parent" id="cloud"></div>
 
-    <div class="santaDeers">
-        <img class="santaDeersSprites pixelart" src="assets/santa_deers.png" />
-    </div>
-
     <div class="santaJump">
-        <img class="santaJumpSprites pixelart" src="assets/santa_jump.png" />
+        <img class="santaJumpSprites pixelart" src="assets/old/santa_jump.png" />
     </div>
 
-    <div class="santaLookaround">
-        <img class="santaLookaroundSprites pixelart" src="assets/santa_lookaround.png" />
+    <div style="position: absolute; width: 100vw; margin-top: 10vh">
+        <div style="display: flex; justify-content: center;">
+            <canvas id="backgroundCanvas" width=640 height=640></canvas>
+        </div>
     </div>
 
-    <div class="santaFall">
-        <img class="santaFallSprites pixelart" src="assets/santa_fall.png" />
+    <div style="position: absolute; width: 100vw; margin-top: 10vh">
+        <div style="display: flex; justify-content: center;">
+            <canvas id="middlegroundCanvas" width=640 height=640></canvas>
+        </div>
     </div>
 
-    <div class="santaBrake">
-        <img class="santaBrakeSprites pixelart" src="assets/santa_brake.png" />
+    <div style="position: absolute; width: 100vw; margin-top: 10vh">
+        <div style="display: flex; justify-content: center;">
+            <canvas id="foregroundCanvas" width=640 height=640></canvas>
+        </div>
     </div>
 
-    <div class="houses"></div>
+    <div style="position: absolute; width: 100vw; top: 60vh;">
+        <div class="button-container">
+            <button class="start pixelart" id="start-button"></button>
+        </div>
+    </div>
+
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/sprites.js"></script>
 </body>

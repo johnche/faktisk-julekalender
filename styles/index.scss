@@ -1,10 +1,66 @@
-html, body {
-	background: #2E2E6E;
+@import 'layers';
+
+html {
+	background-color: #272537;
+	//background-color: #32324B;
+	//background: url(../assets/scene1_background.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+body {
+	margin: 0;
 	overflow: hidden;
+}
+
+:root {
+	--pixel-size: 4;
+	--frame-duration: 100ms;
+	--size-multiplier: 2.0;
 }
 
 .pixelart {
 	image-rendering: pixelated;
 	image-rendering: -moz-crisp-edges;
 	image-rendering: crisp-edges;
+}
+
+div.button-container {
+	display: flex;
+	justify-content: center;
+}
+button.start {
+	@include semiforeground;
+	height: 5vh;
+	width: calc(5vh*80/23);
+	border: 0;
+	background-color: #FFFFFF00;
+	background-image: url(../assets/button_up.png);
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+button.start:hover {
+	cursor: pointer;
+}
+button.start:active {
+	background-image: url(../assets/button_down.png);
+}
+
+canvas {
+	@include middleground;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-crisp-edges;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+
+	//width: calc(230px * var(--size-multiplier));
+	//height: calc(108px * var(--size-multiplier));
+
+	// 500px directly from index.html canvas width/height
+	width: calc(700px * var(--size-multiplier));
+	height: calc(700px * var(--size-multiplier));
+
+	//background-color: papayawhip;
 }
