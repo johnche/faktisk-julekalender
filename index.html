@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./styles/index.css" />
     <link rel="stylesheet" href="./styles/snow.css" />
     <link rel="stylesheet" href="./styles/sprites.css" />
+    <link rel="stylesheet" href="./styles/text.css" />
 </head>
 
 <body>
@@ -22,28 +23,13 @@
         <img class="santaJumpSprites pixelart" src="assets/old/santa_jump.png" />
     </div>
 
-    <div style="position: absolute; width: 100vw; margin-top: 10vh">
-        <div style="display: flex; justify-content: center;">
-            <canvas id="backgroundCanvas" width=640 height=640></canvas>
-        </div>
-    </div>
+    <canvas id="backgroundCanvas" class="center" width=640 height=350></canvas>
+    <canvas id="middlegroundCanvas" class="center" width=640 height=350></canvas>
+    <canvas id="foregroundCanvas" class="center" width=640 height=350></canvas>
+    <button id="start-button" class="start pixelart center-x" style="top: 60vh;"></button>
 
-    <div style="position: absolute; width: 100vw; margin-top: 10vh">
-        <div style="display: flex; justify-content: center;">
-            <canvas id="middlegroundCanvas" width=640 height=640></canvas>
-        </div>
-    </div>
-
-    <div style="position: absolute; width: 100vw; margin-top: 10vh">
-        <div style="display: flex; justify-content: center;">
-            <canvas id="foregroundCanvas" width=640 height=640></canvas>
-        </div>
-    </div>
-
-    <div style="position: absolute; width: 100vw; top: 60vh;">
-        <div class="button-container">
-            <button class="start pixelart" id="start-button"></button>
-        </div>
+    <div id="text" class="text-box center-x">
+        <p id="typewriter" class="text-box-content"></p>
     </div>
 
     <script src="./scripts/index.js"></script>

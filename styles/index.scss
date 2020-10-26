@@ -1,5 +1,10 @@
 @import 'layers';
 
+@font-face {
+	font-family: 'Apple][';
+	src: url('../assets/fonts/Apple ][.ttf')
+}
+
 html {
 	background-color: #272537;
 	//background-color: #32324B;
@@ -9,6 +14,7 @@ html {
 	-o-background-size: cover;
 	background-size: cover;
 }
+
 body {
 	margin: 0;
 	overflow: hidden;
@@ -17,7 +23,7 @@ body {
 :root {
 	--pixel-size: 4;
 	--frame-duration: 100ms;
-	--size-multiplier: 2.0;
+	--size-multiplier: 3.2;
 }
 
 .pixelart {
@@ -26,12 +32,32 @@ body {
 	image-rendering: crisp-edges;
 }
 
-div.button-container {
+.center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.center-x {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.center-y {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+div.container {
 	display: flex;
 	justify-content: center;
 }
 button.start {
 	@include semiforeground;
+	z-index: 99999;
 	height: 5vh;
 	width: calc(5vh*80/23);
 	border: 0;
@@ -49,7 +75,7 @@ button.start:active {
 }
 
 canvas {
-	@include middleground;
+	@include foreground;
 	image-rendering: -moz-crisp-edges;
 	image-rendering: -webkit-crisp-edges;
 	image-rendering: pixelated;
@@ -59,8 +85,8 @@ canvas {
 	//height: calc(108px * var(--size-multiplier));
 
 	// 500px directly from index.html canvas width/height
-	width: calc(700px * var(--size-multiplier));
-	height: calc(700px * var(--size-multiplier));
+	width: calc(640px * var(--size-multiplier));
+	height: calc(350px * var(--size-multiplier));
 
 	//background-color: papayawhip;
 }

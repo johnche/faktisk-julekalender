@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Apple][';
+  src: url("../assets/fonts/Apple ][.ttf");
+}
+
 html {
   background-color: #272537;
   background-size: cover;
@@ -11,7 +16,7 @@ body {
 :root {
   --pixel-size: 4;
   --frame-duration: 100ms;
-  --size-multiplier: 2.0;
+  --size-multiplier: 3.2;
 }
 
 .pixelart {
@@ -23,7 +28,29 @@ body {
   image-rendering: crisp-edges;
 }
 
-div.button-container {
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.center-x {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.center-y {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+div.container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,6 +61,7 @@ div.button-container {
 
 button.start {
   z-index: 30;
+  z-index: 99999;
   height: 5vh;
   width: calc(5vh*80/23);
   border: 0;
@@ -53,7 +81,7 @@ button.start:active {
 }
 
 canvas {
-  z-index: 20;
+  z-index: 40;
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-crisp-edges;
   -ms-interpolation-mode: nearest-neighbor;
@@ -61,7 +89,7 @@ canvas {
       image-rendering: -o-pixelated;
       image-rendering: pixelated;
   image-rendering: crisp-edges;
-  width: calc(700px * var(--size-multiplier));
-  height: calc(700px * var(--size-multiplier));
+  width: calc(640px * var(--size-multiplier));
+  height: calc(350px * var(--size-multiplier));
 }
 /*# sourceMappingURL=index.css.map */
