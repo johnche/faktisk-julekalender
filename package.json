@@ -1,0 +1,27 @@
+{
+  "name": "faktisk-julekalender",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "node-sass-chokidar": "^1.5.0"
+  },
+  "scripts": {
+    "start": "live-server",
+    "sass": "node-sass-chokidar styles -o styles -w --skip-initial"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnche/faktisk-julekalender.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnche/faktisk-julekalender/issues"
+  },
+  "homepage": "https://github.com/johnche/faktisk-julekalender#readme"
+}
