@@ -21,6 +21,7 @@ const getFramePath = (frameType, i) => `../assets/frames/${frameType}/${leftPadZ
 const fetchAllFrames = (frameType, numFrames) => [...Array(numFrames + 1).keys()]
 		.map(i => getFramePath(frameType, i));
 
+const scene1_0_background = fetchAllFrames('scene1/0_background', 349);
 const scene1_1_intro = fetchAllFrames('scene1/1_intro', 14);
 const scene1_2_ride = fetchAllFrames('scene1/2_ride', 4);
 const scene1_3_brake_Fg = fetchAllFrames('scene1/3_brake/foreground', 87);
@@ -65,6 +66,8 @@ const endDialog = () => {
 
 const WINDLOOP_BEGIN = 5;	// intro005
 const WINDLOOP_END = 8;		// brake008
+const LANDSCAPE_END = 13;	// brake013
+
 const audio1 = new Audio();
 const audio2 = new Audio();
 audio1.muted = true;
@@ -92,6 +95,8 @@ const loopAudioStart = async (path, audioElement) => {
 async function run(foreground, middleground, background) {
 	audioPlay('../assets/audio/scene1/intro.ogg');
 	console.log(scene1_1_intro.slice(0, WINDLOOP_BEGIN))
+	const scene1LandscapeLoop = {isTrue: true};
+	loopFrames(background.image, scene1_0_background, scene1LandscapeLoop);
 	await drawFrames(foreground.image, scene1_1_intro.slice(0, WINDLOOP_BEGIN));
 
 	audio2.src = '../assets/audio/scene1/wind.ogg';
@@ -105,10 +110,12 @@ async function run(foreground, middleground, background) {
 	}
 	const brakeShouldRun = {isTrue: true}
 	//audioPlay('../assets/audio/scene1/brake.ogg');
-	loopFrames(background.image, scene1_3_brake_Mg, brakeShouldRun);
+	loopFrames(middleground.image, scene1_3_brake_Mg, brakeShouldRun);
 	await drawFrames(foreground.image, scene1_3_brake_Fg.slice(0, WINDLOOP_END));
 	audio2.pause();
-	await drawFrames(foreground.image, scene1_3_brake_Fg.slice(WINDLOOP_END));
+	await drawFrames(foreground.image, scene1_3_brake_Fg.slice(WINDLOOP_END, LANDSCAPE_END));
+	scene1LandscapeLoop.isTrue = false;
+	await drawFrames(foreground.image, scene1_3_brake_Fg.slice(LANDSCAPE_END));
 	brakeShouldRun.isTrue = false
 
 	// Scene 2 begin
