@@ -55,6 +55,7 @@ const loopFrames = (image, frames, signal) => loopCallback(() => drawFrames(imag
 
 const messageBox = document.getElementById('typewriter');
 const typeDialog = async (message) => {
+	message.innerHTML = '';
 	asyncForEach(message, async letter => {
 		messageBox.innerHTML += letter;
 		await sleep(65);
