@@ -14,23 +14,24 @@ const drawFrames = async (drawnImage, frames, delay=100) => {
 	await asyncForEach(frames, async frame => {
 		drawnImage.src = frame;
 		await sleep(delay);
-	})
+	});
 }
 
 const getFramePath = (frameType, i) => `../assets/frames/${frameType}/${leftPadZero(i, 3)}.png`;
 const fetchAllFrames = (frameType, numFrames) => [...Array(numFrames + 1).keys()]
 		.map(i => getFramePath(frameType, i));
 
-const scene1_intro = fetchAllFrames('scene1/1_intro', 16);
-const scene1_ride = fetchAllFrames('scene1/2_ride', 4);
-const scene1_brake_Fg = fetchAllFrames('scene1/3_brake/foreground', 87);
-const scene1_brake_Bg = fetchAllFrames('scene1/3_brake/background', 87);
+const scene1_1_intro = fetchAllFrames('scene1/1_intro', 14);
+const scene1_2_ride = fetchAllFrames('scene1/2_ride', 4);
+const scene1_3_brake_Fg = fetchAllFrames('scene1/3_brake/foreground', 87);
+const scene1_3_brake_Mg = fetchAllFrames('scene1/3_brake/middleground', 87);
 
-const scene2_intro = fetchAllFrames('scene2/1_intro', 23);
-const scene2_arrival = fetchAllFrames('scene2/2_arrival', 119);
+const scene2_1_intro = fetchAllFrames('scene2/1_intro', 23);
+const scene2_2_arrival = fetchAllFrames('scene2/2_arrival', 119);
 const scene2_3_postArrivalFg = fetchAllFrames('scene2/3_post_arrival/foreground', 14);
 const scene2_3_postArrivalMg = fetchAllFrames('scene2/3_post_arrival/middleground', 0);
-const scene2_3_postArrivalBg = fetchAllFrames('scene2/3_post_arrival/background', 23);
+const scene2_3_postArrivalBg = fetchAllFrames('scene2/3_post_arrival/background', 11);
+const scene2_4_departure = fetchAllFrames('scene2/4_departure', 11);
 
 let start = false;
 
@@ -43,12 +44,13 @@ const draw = (context, options) => {
 	);
 }
 
-const loopFrames = async (image, frames, signal) => {
-	// To keep reference to outside variable, wrap run boolean in object
-	while(signal.run) {
-		await drawFrames(image, frames);
+const loopCallback = async (cb, loopCondition) => {
+	// To keep reference to outside variable, wrap the condition boolean in object
+	while(loopCondition.isTrue) {
+		await cb();
 	}
 }
+const loopFrames = (image, frames, signal) => loopCallback(() => drawFrames(image, frames), signal);
 
 const messageBox = document.getElementById('typewriter');
 const typeDialog = async (message) => {
@@ -61,54 +63,73 @@ const endDialog = () => {
 	messageBox.innerHTML = '';
 }
 
-const audio = new Audio();
-audio.muted = true;
-audio.volume = 0.5;
-const audioPlay = (path) => {
-	if (audio.src !== path) {
-		audio.src = path;
+const WINDLOOP_BEGIN = 5;	// intro005
+const WINDLOOP_END = 8;		// brake008
+const audio1 = new Audio();
+const audio2 = new Audio();
+audio1.muted = true;
+audio1.volume = 0.5;
+audio2.muted = true;
+audio2.volume = 0.5;
+const audioPlay = async (path, audioElement=audio1) => {
+	if (audioElement.src !== path) {
+		audioElement.src = path;
 	}
-	audio.play();
+
+	// Wait for the player to load file
+	await audioElement.play();
+	console.log(audioElement);
+	console.log('sleeping', audioElement.duration)
+	// Exit the function after the duration of the audiofile
+	await sleep(audioElement.duration*1000);
+	console.log('done')
+}
+const loopAudioStart = async (path, audioElement) => {
+	audioElement.loop = signal.true;
+	audioPlay(path, audioLooped);
 }
 
 async function run(foreground, middleground, background) {
-	await drawFrames(foreground.image, scene1_intro);
+	audioPlay('../assets/audio/scene1/intro.ogg');
+	console.log(scene1_1_intro.slice(0, WINDLOOP_BEGIN))
+	await drawFrames(foreground.image, scene1_1_intro.slice(0, WINDLOOP_BEGIN));
+
+	audio2.src = '../assets/audio/scene1/wind.ogg';
+	audio2.loop = true;
+	audio2.play();
+	await drawFrames(foreground.image, scene1_1_intro.slice(WINDLOOP_BEGIN));
+
 	while (!start) {
 		audioPlay('../assets/audio/scene1/gallop.ogg');
-		await drawFrames(foreground.image, scene1_ride);
+		await drawFrames(foreground.image, scene1_2_ride);
 	}
-	const brakeSignal = {run: true}
-	audioPlay('../assets/audio/scene1/brake.ogg');
-	loopFrames(background.image, scene1_brake_Bg, brakeSignal);
-	await drawFrames(foreground.image, scene1_brake_Fg);
-	brakeSignal.run = false
+	const brakeShouldRun = {isTrue: true}
+	//audioPlay('../assets/audio/scene1/brake.ogg');
+	loopFrames(background.image, scene1_3_brake_Mg, brakeShouldRun);
+	await drawFrames(foreground.image, scene1_3_brake_Fg.slice(0, WINDLOOP_END));
+	audio2.pause();
+	await drawFrames(foreground.image, scene1_3_brake_Fg.slice(WINDLOOP_END));
+	brakeShouldRun.isTrue = false
 
 	// Scene 2 begin
 	await asyncForEach(Array(1), async () => {
 		audioPlay('../assets/audio/scene2/snore.ogg');
-		await drawFrames(foreground.image, scene2_intro);
+		await drawFrames(foreground.image, scene2_1_intro);
 	});
 
 	typeDialog('The quick green fox jumped over the lazy brown dog');
 	audioPlay('../assets/audio/scene2/arrival.ogg');
-	await drawFrames(foreground.image, scene2_arrival);
+	await drawFrames(foreground.image, scene2_2_arrival);
 
-	const postArrivalSignal = {run: true};
+	const postArrivalShouldRun = {isTrue: true};
 	drawFrames(middleground.image, scene2_3_postArrivalMg);
-	loopFrames(background.image, scene2_3_postArrivalBg, postArrivalSignal);
-	loopFrames(foreground.image, scene2_3_postArrivalFg, postArrivalSignal);
+	loopFrames(background.image, scene2_3_postArrivalBg, postArrivalShouldRun);
+	loopFrames(foreground.image, scene2_3_postArrivalFg, postArrivalShouldRun);
 	await sleep(100*1000);
-	postArrivalSignal.run = false;
+	postArrivalShouldRun.isTrue = false;
 }
 
 function sprites() {
-	const startButton = document.getElementById('start-button');
-	startButton.onclick = () => {
-		start = true;
-		audio.muted = false; // bypass audioblock
-		startButton.style.display = 'none';
-	}
-
 	const [fg, mg, bg] = ['foregroundCanvas', 'middlegroundCanvas', 'backgroundCanvas'].map(
 		canvasId => {
 			const context = document.getElementById(canvasId).getContext('2d');
@@ -121,7 +142,17 @@ function sprites() {
 		}
 	);
 
-	run(fg, mg, bg);
+	drawFrames(fg.image, ['../assets/frames/scene1/1_intro/000.png']);
+	const startButton = document.getElementById('start-button');
+	startButton.onclick = () => {
+		start = true;
+		audio1.muted = false; // bypass audioblock
+		audio2.muted = false; // bypass audioblock
+		startButton.style.display = 'none';
+		clearCanvas(fg.context);
+		run(fg, mg, bg);
+	}
+
 }
 
 sprites();
