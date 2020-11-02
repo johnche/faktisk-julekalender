@@ -110,7 +110,7 @@ async function run(foreground, middleground, background) {
 		await drawFrames(foreground.image, scene1_2_ride);
 	}
 	const brakeShouldRun = {isTrue: true}
-	//audioPlay('../assets/audio/scene1/brake.ogg');
+	audioPlay('../assets/audio/scene1/brake.ogg');
 	loopFrames(middleground.image, scene1_3_brake_Mg, brakeShouldRun);
 	await drawFrames(foreground.image, scene1_3_brake_Fg.slice(0, WINDLOOP_END));
 	audio2.pause();
@@ -128,7 +128,6 @@ async function run(foreground, middleground, background) {
 	typeDialog('The quick green fox jumped over the lazy brown dog');
 	audioPlay('../assets/audio/scene2/arrival.ogg');
 	await drawFrames(foreground.image, scene2_2_arrival);
-
 	const postArrivalShouldRun = {isTrue: true};
 	drawFrames(middleground.image, scene2_3_postArrivalMg);
 	loopFrames(background.image, scene2_3_postArrivalBg, postArrivalShouldRun);
