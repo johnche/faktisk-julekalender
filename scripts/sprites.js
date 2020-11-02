@@ -32,7 +32,8 @@ const scene2_2_arrival = fetchAllFrames('scene2/2_arrival', 119);
 const scene2_3_postArrivalFg = fetchAllFrames('scene2/3_post_arrival/foreground', 14);
 const scene2_3_postArrivalMg = fetchAllFrames('scene2/3_post_arrival/middleground', 0);
 const scene2_3_postArrivalBg = fetchAllFrames('scene2/3_post_arrival/background', 11);
-const scene2_4_departure = fetchAllFrames('scene2/4_departure', 11);
+const scene2_4_departure = fetchAllFrames('scene2/4_departure', 12);
+const scene3_1_end = fetchAllFrames('scene3/1_end', 29);
 
 let start = false;
 
@@ -129,11 +130,25 @@ async function run(foreground, middleground, background) {
 	audioPlay('../assets/audio/scene2/arrival.ogg');
 	await drawFrames(foreground.image, scene2_2_arrival);
 	const postArrivalShouldRun = {isTrue: true};
+	const postArrivalRoomShouldRun = {isTrue: true};
 	drawFrames(middleground.image, scene2_3_postArrivalMg);
-	loopFrames(background.image, scene2_3_postArrivalBg, postArrivalShouldRun);
+	loopFrames(background.image, scene2_3_postArrivalBg, postArrivalRoomShouldRun);
 	loopFrames(foreground.image, scene2_3_postArrivalFg, postArrivalShouldRun);
-	await sleep(100*1000);
+	await sleep(100*5);
 	postArrivalShouldRun.isTrue = false;
+	await drawFrames(foreground.image, scene2_4_departure);
+	postArrivalRoomShouldRun.isTrue = false;
+
+	// Scene 3 begin
+	audioPlay('../assets/audio/scene1/intro.ogg');
+	loopFrames(background.image, scene1_0_background, scene1LandscapeLoop);
+	await drawFrames(foreground.image, scene1_1_intro);
+
+	while (!start) {
+		audioPlay('../assets/audio/scene1/gallop.ogg');
+		await drawFrames(middleground.image, scene1_2_ride);
+	}
+	await drawFrames(foreground.image, scene3_1_end);
 }
 
 function sprites() {
