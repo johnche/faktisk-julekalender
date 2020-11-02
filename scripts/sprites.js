@@ -10,8 +10,11 @@ const sleep = (ms) => {
 
 const leftPadZero = (num, length) => num.toString().padStart(length, '0');
 
-const drawFrames = async (drawnImage, frames, delay=100) => {
+const drawFrames = async (drawnImage, frames, shouldDraw={isTrue: true}, delay=100) => {
 	await asyncForEach(frames, async frame => {
+		if (!shouldDraw.isTrue) {
+			return;
+		}
 		drawnImage.src = frame;
 		await sleep(delay);
 	});
@@ -46,13 +49,12 @@ const draw = (context, options) => {
 	);
 }
 
-const loopCallback = async (cb, loopCondition) => {
+const loopFrames = async (image, frames, signal) => {
 	// To keep reference to outside variable, wrap the condition boolean in object
-	while(loopCondition.isTrue) {
-		await cb();
+	while(signal.isTrue) {
+		await drawFrames(image, frames, signal);
 	}
 }
-const loopFrames = (image, frames, signal) => loopCallback(() => drawFrames(image, frames), signal);
 
 const messageBox = document.getElementById('typewriter');
 const typeDialog = async (message) => {
@@ -134,20 +136,12 @@ async function run(foreground, middleground, background) {
 	drawFrames(middleground.image, scene2_3_postArrivalMg);
 	loopFrames(background.image, scene2_3_postArrivalBg, postArrivalRoomShouldRun);
 	loopFrames(foreground.image, scene2_3_postArrivalFg, postArrivalShouldRun);
-	await sleep(100*5);
+	await sleep(2*1000);
 	postArrivalShouldRun.isTrue = false;
 	await drawFrames(foreground.image, scene2_4_departure);
 	postArrivalRoomShouldRun.isTrue = false;
 
 	// Scene 3 begin
-	audioPlay('../assets/audio/scene1/intro.ogg');
-	loopFrames(background.image, scene1_0_background, scene1LandscapeLoop);
-	await drawFrames(foreground.image, scene1_1_intro);
-
-	while (!start) {
-		audioPlay('../assets/audio/scene1/gallop.ogg');
-		await drawFrames(middleground.image, scene1_2_ride);
-	}
 	await drawFrames(foreground.image, scene3_1_end);
 }
 
