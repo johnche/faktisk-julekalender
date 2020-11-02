@@ -136,12 +136,36 @@ async function run(foreground, middleground, background) {
 	drawFrames(middleground.image, scene2_3_postArrivalMg);
 	loopFrames(background.image, scene2_3_postArrivalBg, postArrivalRoomShouldRun);
 	loopFrames(foreground.image, scene2_3_postArrivalFg, postArrivalShouldRun);
-	await sleep(2*1000);
+	await sleep(2*1000); // placeholder for questions
 	postArrivalShouldRun.isTrue = false;
 	await drawFrames(foreground.image, scene2_4_departure);
 	postArrivalRoomShouldRun.isTrue = false;
 
 	// Scene 3 begin
+	clearCanvas(foreground.context);
+	clearCanvas(middleground.context);
+	clearCanvas(background.context);
+
+	audioPlay('../assets/audio/scene1/intro.ogg');
+	console.log(scene1_1_intro.slice(0, WINDLOOP_BEGIN))
+	const scene3LandscapeLoop = {isTrue: true};
+	loopFrames(background.image, scene1_0_background, scene3LandscapeLoop);
+	await drawFrames(middleground.image, scene1_1_intro.slice(0, WINDLOOP_BEGIN));
+
+	audio2.src = '../assets/audio/scene1/wind.ogg';
+	audio2.loop = true;
+	audio2.play();
+	await drawFrames(middleground.image, scene1_1_intro.slice(WINDLOOP_BEGIN));
+
+	audio1.src = '../assets/audio/scene1/gallop.ogg';
+	audio1.loop = true;
+	audio1.play();
+	const scene3RideLoop = {isTrue: true}
+	loopFrames(middleground.image, scene1_2_ride, scene3RideLoop);
+	await sleep(4*1000); // placeholder for epilogue text
+
+	audio1.pause();
+	audio2.pause();
 	await drawFrames(foreground.image, scene3_1_end);
 }
 
