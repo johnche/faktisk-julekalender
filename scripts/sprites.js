@@ -138,6 +138,7 @@ async function run(foreground, middleground, background) {
 	loopFrames(foreground.image, scene2_3_postArrivalFg, postArrivalShouldRun);
 	await sleep(2*1000); // placeholder for questions
 	postArrivalShouldRun.isTrue = false;
+	audioPlay('../assets/audio/scene2/departure.ogg');
 	await drawFrames(foreground.image, scene2_4_departure);
 	postArrivalRoomShouldRun.isTrue = false;
 
@@ -166,6 +167,7 @@ async function run(foreground, middleground, background) {
 
 	audio1.pause();
 	audio2.pause();
+	audioPlay('../assets/audio/scene3/end.ogg');
 	await drawFrames(foreground.image, scene3_1_end);
 }
 
