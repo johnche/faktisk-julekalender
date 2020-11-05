@@ -33,5 +33,6 @@ export const scene3 = async ({ foreground, middleground, background }) => {
 
 	getAudioChannel(0).pause();
 	getAudioChannel(1).pause();
+	audioPlay('../assets/audio/scene3/end.ogg', getAudioChannel(0));
 	await drawFrames(foreground.image, part1_end);
 }

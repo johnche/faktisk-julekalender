@@ -31,6 +31,7 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 	await sleep(2*1000); // placeholder for questions
 	postArrivalShouldRun.isTrue = false;
 
+	audioPlay('../assets/audio/scene2/departure.ogg', getAudioChannel(0));
 	await drawFrames(foreground.image, part4_departure);
 	postArrivalRoomShouldRun.isTrue = false;
 }
