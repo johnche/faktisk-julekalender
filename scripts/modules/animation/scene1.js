@@ -21,7 +21,6 @@ export const scene1 = async ({ foreground, middleground, background }) => {
 	getAudioChannel(1).play();
 	await drawFrames(foreground.image, part1_intro.slice(WINDLOOP_BEGIN));
 
-	// This was earlier in a while not started loop
 	getAudioChannel(0).src = '../assets/audio/scene1/gallop.ogg';
 	getAudioChannel(0).loop = true;
 	getAudioChannel(0).play();
