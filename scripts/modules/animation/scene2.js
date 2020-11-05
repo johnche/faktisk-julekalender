@@ -18,7 +18,6 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 		await drawFrames(foreground.image, part1_intro);
 	});
 
-	typeDialog('The quick green fox jumped over the lazy brown dog');
 	audioPlay('../assets/audio/scene2/arrival.ogg', getAudioChannel(0));
 	await drawFrames(foreground.image, part2_arrival);
 
