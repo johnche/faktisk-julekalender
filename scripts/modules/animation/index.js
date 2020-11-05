@@ -16,9 +16,9 @@ export const play = async () => {
 
 	clearAll(images);
 	await scene1(images);
-	clearAll(images);
+	//clearAll(images);
 	await scene2(images);
-	clearAll(images);
+	//clearAll(images);
 	await scene3(images);
 };
 
