@@ -9,7 +9,7 @@ export const typeDialog = async (message) => {
 	let impatient = false;
 	messageBox.onclick = () => impatient = true;
 
-	getAudioChannel(2).volume = 0.02;
+	getAudioChannel(2).volume = 0.1;
 	messageBox.style.display = 'block';
 	await asyncForEach(message, async letter => {
 		if (impatient) {
