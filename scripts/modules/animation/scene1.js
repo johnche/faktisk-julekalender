@@ -8,7 +8,7 @@ export const part0_background = fetchAllFrames('scene1/0_background', 349);
 export const part1_intro = fetchAllFrames('scene1/1_intro', 14);
 export const part2_ride = fetchAllFrames('scene1/2_ride', 4);
 export const part3_brake_Fg = fetchAllFrames('scene1/3_brake/foreground', 87);
-export const part3_brake_Mg = fetchAllFrames('scene1/old/3_brake/middleground', 87);
+export const part3_brake_Mg = fetchAllFrames('scene1/3_brake/middleground', 87);
 
 export const scene1 = async ({ foreground, middleground, background }) => {
 	audioPlay('../assets/audio/scene1/intro.ogg', getAudioChannel(0));
