@@ -5,7 +5,7 @@ import * as animation from './modules/animation/index.js'
 function main() {
 	const audioConfig = {
 		defaultVolume: 0.5,
-		numChannels: 2
+		numChannels: 3
 	};
 
 	snow.init();
