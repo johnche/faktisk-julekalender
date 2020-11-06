@@ -1,6 +1,5 @@
 import { drawFrames, loopFrames, fetchAllFrames } from './utils.js';
 import { audioPlay, audioLoopStart, audioLoopStop } from '../audio/utils.js';
-import { sleep } from '../utils.js';
 import { WINDLOOP_BEGIN } from '../constants.js';
 import { getAudioChannel } from '../audio/index.js';
 import { typeDialog } from '../typography.js';
@@ -16,7 +15,7 @@ export const scene3 = async ({ foreground, middleground, background }) => {
 	const channel0 = getAudioChannel(0);
 	const channel1 = getAudioChannel(1);
 
-	audioPlay('../assets/audio/scene1/intro.ogg', getAudioChannel(0));
+	audioPlay('../assets/audio/scene1/intro.ogg', channel0);
 	const scene3LandscapeLoop = {isTrue: true};
 	loopFrames(background.image, scene1_0_background, scene3LandscapeLoop);
 	await drawFrames(middleground.image, scene1_1_intro.slice(0, WINDLOOP_BEGIN));
@@ -35,6 +34,6 @@ export const scene3 = async ({ foreground, middleground, background }) => {
 	audioLoopStop(channel0);
 	audioLoopStop(channel1);
 
-	audioPlay('../assets/audio/scene3/end.ogg', getAudioChannel(0));
+	audioPlay('../assets/audio/scene3/end.ogg', channel0);
 	await drawFrames(foreground.image, part1_end);
 }

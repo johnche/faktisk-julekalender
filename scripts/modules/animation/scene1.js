@@ -14,7 +14,7 @@ export const scene1 = async ({ foreground, middleground, background }) => {
 	const channel0 = getAudioChannel(0);
 	const channel1 = getAudioChannel(1);
 
-	audioPlay('../assets/audio/scene1/intro.ogg', getAudioChannel(0));
+	audioPlay('../assets/audio/scene1/intro.ogg', channel0);
 	const scene1LandscapeLoop = {isTrue: true};
 	loopFrames(background.image, part0_background, scene1LandscapeLoop);
 	await drawFrames(foreground.image, part1_intro.slice(0, WINDLOOP_BEGIN));	
@@ -36,11 +36,11 @@ export const scene1 = async ({ foreground, middleground, background }) => {
 	audioLoopStop(channel0);
 
 	const brakeShouldRun = {isTrue: true}
-	audioPlay('../assets/audio/scene1/brake.ogg', getAudioChannel(0));
+	audioPlay('../assets/audio/scene1/brake.ogg', channel0);
 	loopFrames(middleground.image, part3_brake_Mg, brakeShouldRun);
 	await drawFrames(foreground.image, part3_brake_Fg.slice(0, WINDLOOP_END));
 
-	audioLoopStop(channel1)
+	audioLoopStop(channel1);
 
 	await drawFrames(foreground.image, part3_brake_Fg.slice(WINDLOOP_END, LANDSCAPE_END));
 	scene1LandscapeLoop.isTrue = false;
