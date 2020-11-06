@@ -13,6 +13,9 @@ export const part3_postArrivalBg = fetchAllFrames('scene2/3_post_arrival/backgro
 export const part4_departure = fetchAllFrames('scene2/4_departure', 12);
 
 export const scene2 = async ({ foreground, middleground, background }) => {
+	getAudioChannel(1).src = '../assets/audio/music/scene2.ogg';
+	getAudioChannel(1).loop = true; 
+	getAudioChannel(1).play();
 	await asyncForEach(Array(1), async () => {
 		audioPlay('../assets/audio/scene2/snore.ogg', getAudioChannel(0));
 		await drawFrames(foreground.image, part1_intro);
@@ -38,5 +41,6 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 
 	audioPlay('../assets/audio/scene2/departure.ogg', getAudioChannel(0));
 	await drawFrames(foreground.image, part4_departure);
+	getAudioChannel(1).loop = false; 
 	postArrivalRoomShouldRun.isTrue = false;
 }
