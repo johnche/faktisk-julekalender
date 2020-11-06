@@ -13,7 +13,7 @@ export const getAudioChannel = (index) => {
 
 export const setAllVolume = (volume) => {
 	audioChannels.forEach(channel => channel.volume = volume);
-}
+};
 
 export const init = ({numChannels = 1, defaultVolume = 0.5}) => {
 	audioChannels = Array(numChannels).fill().map(() => new Audio());
