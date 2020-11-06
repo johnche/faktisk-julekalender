@@ -12,19 +12,20 @@ export const part3_brake_Mg = fetchAllFrames('scene1/old/3_brake/middleground', 
 
 export const scene1 = async ({ foreground, middleground, background }) => {
 	audioPlay('../assets/audio/scene1/intro.ogg', getAudioChannel(0));
+	//audioPlay('../assets/audio/music/intro_scene1.ogg', getAudioChannel(1));
 	const scene1LandscapeLoop = {isTrue: true};
 	loopFrames(background.image, part0_background, scene1LandscapeLoop);
-	await drawFrames(foreground.image, part1_intro.slice(0, WINDLOOP_BEGIN));
+	await drawFrames(foreground.image, part1_intro.slice(0, WINDLOOP_BEGIN));	
+	// getAudioChannel(1).src = '../assets/audio/scene1/wind.ogg';
+	// getAudioChannel(1).loop = true; 
+	// getAudioChannel(1).play();
+	await drawFrames(foreground.image, part1_intro.slice(WINDLOOP_BEGIN));
 
+	//can I have this playing once, then go straight to the loop? 
+	audioPlay('../assets/audio/music/intro_scene1.ogg', getAudioChannel(1));
 	getAudioChannel(1).src = '../assets/audio/music/scene1.ogg';
 	getAudioChannel(1).loop = true; 
 	getAudioChannel(1).play();
-	await drawFrames(foreground.image, part1_intro.slice(WINDLOOP_BEGIN));
-
-	// getAudioChannel(2).src = '../assets/audio/music/scene1.ogg';
-	// getAudioChannel(2).loop = true; 
-	// getAudioChannel(2).play();
-	// await drawFrames(foreground.image, part1_intro.slice(WINDLOOP_BEGIN));
 
 	getAudioChannel(0).src = '../assets/audio/scene1/gallop.ogg';
 	getAudioChannel(0).loop = true;
