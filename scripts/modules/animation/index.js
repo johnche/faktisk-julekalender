@@ -1,4 +1,5 @@
-import { drawFrames, clearCanvas, draw } from './utils.js'
+import { drawFrames, clearCanvas, draw } from './utils.js';
+import { audioStopAll } from '../audio/index.js';
 import { scene1 } from './scene1.js';
 import { scene2 } from './scene2.js';
 import { scene3 } from './scene3.js';
@@ -18,6 +19,7 @@ export const play = async () => {
 	await scene1(images);
 	await scene2(images);
 	await scene3(images);
+	audioStopAll();
 };
 
 export const init = () => {

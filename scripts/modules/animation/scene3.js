@@ -1,5 +1,5 @@
 import { drawFrames, loopFrames, fetchAllFrames } from './utils.js';
-import { audioPlay } from '../audio/utils.js';
+import { audioPlay, audioLoopStart, audioLoopStop } from '../audio/utils.js';
 import { sleep } from '../utils.js';
 import { WINDLOOP_BEGIN } from '../constants.js';
 import { getAudioChannel } from '../audio/index.js';
@@ -13,28 +13,28 @@ import {
 export const part1_end = fetchAllFrames('scene3/1_end', 29);
 
 export const scene3 = async ({ foreground, middleground, background }) => {
+	const channel0 = getAudioChannel(0);
+	const channel1 = getAudioChannel(1);
+
 	audioPlay('../assets/audio/scene1/intro.ogg', getAudioChannel(0));
-	console.log(scene1_1_intro.slice(0, WINDLOOP_BEGIN))
 	const scene3LandscapeLoop = {isTrue: true};
 	loopFrames(background.image, scene1_0_background, scene3LandscapeLoop);
 	await drawFrames(middleground.image, scene1_1_intro.slice(0, WINDLOOP_BEGIN));
 
-	getAudioChannel(1).src = '../assets/audio/scene1/wind.ogg';
-	getAudioChannel(1).loop = true;
-	getAudioChannel(1).play();
+	audioLoopStart('assets/audio/scene1/wind.ogg', channel1);
 	await drawFrames(middleground.image, scene1_1_intro.slice(WINDLOOP_BEGIN));
 
-	getAudioChannel(0).src = '../assets/audio/scene1/gallop.ogg';
-	getAudioChannel(0).loop = true;
-	getAudioChannel(0).play();
+	audioLoopStart('assets/audio/scene1/gallop.ogg', channel0);
+
 	const scene3RideLoop = {isTrue: true}
 	loopFrames(middleground.image, scene1_2_ride, scene3RideLoop);
 	await typeDialog ("Og med ny informasjon om den førkristne juletradisjonen, dro julenissen raskt videre på sin vei, for nå var han allerede forsinket i sin rute");
 	await typeDialog ("Hva vil stoppe julenissen neste gang? Vil han måtte kjempe mot nordavinden, eller tappert unngå enda et innkommende norwegian fly? Ja, for det er ikke bare julenissen som er på reisefot i juletiden, selv med Corona virus så er det så mange som (kom med noe statistikk) nordmenn som tar fly hjem hvert år, faktisk.")
 	await typeDialog ("Finn ut i neste FAKTISKE kalenderluke.")
 
-	getAudioChannel(0).pause();
-	getAudioChannel(1).pause();
+	audioLoopStop(channel0);
+	audioLoopStop(channel1);
+
 	audioPlay('../assets/audio/scene3/end.ogg', getAudioChannel(0));
 	await drawFrames(foreground.image, part1_end);
 }

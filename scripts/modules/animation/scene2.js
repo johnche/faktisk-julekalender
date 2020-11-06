@@ -1,5 +1,5 @@
 import { drawFrames, loopFrames, fetchAllFrames } from './utils.js';
-import { audioPlay } from '../audio/utils.js';
+import { audioPlay, audioLoopStart, audioLoopStop } from '../audio/utils.js';
 import { getAudioChannel } from '../audio/index.js';
 import { sleep } from '../utils.js';
 import { typeDialog } from '../typography.js';
@@ -13,9 +13,10 @@ export const part3_postArrivalBg = fetchAllFrames('scene2/3_post_arrival/backgro
 export const part4_departure = fetchAllFrames('scene2/4_departure', 12);
 
 export const scene2 = async ({ foreground, middleground, background }) => {
-	getAudioChannel(1).src = '../assets/audio/music/scene2.ogg';
-	getAudioChannel(1).loop = true; 
-	getAudioChannel(1).play();
+	const channel1 = getAudioChannel(1);
+
+	audioLoopStart('assets/audio/music/scene2.ogg', channel1);
+
 	await asyncForEach(Array(1), async () => {
 		audioPlay('../assets/audio/scene2/snore.ogg', getAudioChannel(0));
 		await drawFrames(foreground.image, part1_intro);
@@ -41,6 +42,8 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 
 	audioPlay('../assets/audio/scene2/departure.ogg', getAudioChannel(0));
 	await drawFrames(foreground.image, part4_departure);
-	getAudioChannel(1).loop = false; 
+
+	audioLoopStop(channel1);
+
 	postArrivalRoomShouldRun.isTrue = false;
 }

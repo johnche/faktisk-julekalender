@@ -9,10 +9,15 @@ export const audioPlay = async (path, audioElement) => {
 	await audioElement.play();
 	// Exit the function after the duration of the audiofile
 	await sleep(audioElement.duration*1000);
-}
+};
 
-export const loopAudioStart = async (path, audioElement) => {
-	// TODO fix?
-	audioElement.loop = signal.true;
-	audioPlay(path, audioLooped);
-}
+export const audioLoopStart = (path, audioElement) => {
+	audioElement.loop = true;
+	audioElement.src = path;
+	audioElement.play();
+};
+
+export const audioLoopStop = audioElement => {
+	audioElement.loop = false;
+	audioElement.pause();
+};

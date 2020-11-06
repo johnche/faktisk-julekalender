@@ -15,6 +15,10 @@ export const setAllVolume = (volume) => {
 	audioChannels.forEach(channel => channel.volume = volume);
 };
 
+export const audioStopAll = () => {
+	audioChannels.forEach(channel => channel.pause());
+}
+
 export const init = ({numChannels = 1, defaultVolume = 0.5}) => {
 	audioChannels = Array(numChannels).fill().map(() => new Audio());
 	audioChannels.forEach(channel => {
