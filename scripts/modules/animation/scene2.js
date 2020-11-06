@@ -27,7 +27,13 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 	loopFrames(background.image, part3_postArrivalBg, postArrivalRoomShouldRun);
 	loopFrames(foreground.image, part3_postArrivalFg, postArrivalShouldRun);
 
-	await sleep(2*1000); // placeholder for questions
+	audioPlay('../assets/audio/scene2/oldMan01.ogg', getAudioChannel(0));
+	await typeDialog ("Unnskyld meg, men er ikke du sjølveste julenissen?");
+	audioPlay('../assets/audio/scene2/oldMan02.ogg', getAudioChannel(0));
+	await typeDialog ("Jammen så artig da. Siden du er her, så har du vel ikke tid til et lite spørsmål fra en gammel fis?");
+	audioPlay('../assets/audio/scene2/oldMan03.ogg', getAudioChannel(0));
+	await typeDialog ("Hvor kommer julen fra??");
+
 	postArrivalShouldRun.isTrue = false;
 
 	audioPlay('../assets/audio/scene2/departure.ogg', getAudioChannel(0));
