@@ -6,7 +6,7 @@ import { audioPlay } from './modules/audio/utils.js'
 function main() {
 	const audioConfig = {
 		defaultVolume: 0.5,
-		numChannels: 3
+		numChannels: 4
 	};
 
 	snow.init();

@@ -22,6 +22,8 @@ export const typeDialog = async (message) => {
 	});
 
 	await waitForClick(messageBox);
+	getAudioChannel(3).volume = 0.6;
+	audioPlay('assets/audio/textbox.ogg', getAudioChannel(3));
 	messageBox.style.display = 'none';
 	messageContent.innerHTML = '';
 	messageBox.onclick = null;
