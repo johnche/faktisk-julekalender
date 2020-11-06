@@ -75,7 +75,7 @@ button.start:active {
 }
 
 canvas {
-	@include foreground;
+	@include middleground;
 	image-rendering: -moz-crisp-edges;
 	image-rendering: -webkit-crisp-edges;
 	image-rendering: pixelated;

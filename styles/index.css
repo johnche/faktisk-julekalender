@@ -81,7 +81,7 @@ button.start:active {
 }
 
 canvas {
-  z-index: 40;
+  z-index: 20;
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-crisp-edges;
   -ms-interpolation-mode: nearest-neighbor;
