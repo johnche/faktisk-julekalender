@@ -13,6 +13,7 @@ export const part3_postArrivalBg = fetchAllFrames('scene2/3_post_arrival/backgro
 export const part4_departure = fetchAllFrames('scene2/4_departure', 12);
 
 export const scene2 = async ({ foreground, middleground, background }) => {
+	const channel0 = getAudioChannel(0);
 	const channel1 = getAudioChannel(1);
 
 	audioLoopStart('assets/audio/music/scene2.ogg', channel1);
