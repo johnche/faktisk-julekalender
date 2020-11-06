@@ -6,6 +6,7 @@ const messageBox = document.getElementById('text');
 const messageContent = document.getElementById('typewriter');
 
 export const typeDialog = async (message) => {
+	getAudioChannel(2).volume = 0.02;
 	messageBox.style.display = 'block';
 	await asyncForEach(message, async letter => {
 		messageContent.innerHTML += letter;
