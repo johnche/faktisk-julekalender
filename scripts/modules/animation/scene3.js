@@ -3,6 +3,7 @@ import { audioPlay } from '../audio/utils.js';
 import { sleep } from '../utils.js';
 import { WINDLOOP_BEGIN } from '../constants.js';
 import { getAudioChannel } from '../audio/index.js';
+import { typeDialog } from '../typography.js';
 import {
 	part0_background as scene1_0_background,
 	part1_intro as scene1_1_intro,
@@ -28,8 +29,9 @@ export const scene3 = async ({ foreground, middleground, background }) => {
 	getAudioChannel(0).play();
 	const scene3RideLoop = {isTrue: true}
 	loopFrames(middleground.image, scene1_2_ride, scene3RideLoop);
-
-	await sleep(4*1000); // placeholder for epilogue text
+	await typeDialog ("Og med ny informasjon om den førkristne juletradisjonen, dro julenissen raskt videre på sin vei, for nå var han allerede forsinket i sin rute");
+	await typeDialog ("Hva vil stoppe julenissen neste gang? Vil han måtte kjempe mot nordavinden, eller tappert unngå enda et innkommende norwegian fly? Ja, for det er ikke bare julenissen som er på reisefot i juletiden, selv med Corona virus så er det så mange som (kom med noe statistikk) nordmenn som tar fly hjem hvert år, faktisk.")
+	await typeDialog ("Finn ut i neste FAKTISKE kalenderluke.")
 
 	getAudioChannel(0).pause();
 	getAudioChannel(1).pause();

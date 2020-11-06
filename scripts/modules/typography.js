@@ -7,7 +7,7 @@ export const typeDialog = async (message) => {
 	messageBox.style.display = 'block';
 	await asyncForEach(message, async letter => {
 		messageContent.innerHTML += letter;
-		await sleep(65);
+		await sleep(50);
 	});
 
 	await waitForClick(messageBox);
