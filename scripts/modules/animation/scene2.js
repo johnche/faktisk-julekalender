@@ -19,10 +19,12 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 	audioLoopStart('assets/audio/music/scene2.ogg', channel1);
 
 	await asyncForEach(Array(1), async () => {
+		channel0.volume = 0.3;
 		audioPlay('../assets/audio/scene2/snore.ogg', channel0);
 		await drawFrames(foreground.image, part1_intro);
 	});
 
+	channel0.volume = 0.5;
 	audioPlay('../assets/audio/scene2/arrival.ogg', channel0);
 	await drawFrames(foreground.image, part2_arrival);
 
@@ -32,6 +34,7 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 	loopFrames(background.image, part3_postArrivalBg, postArrivalRoomShouldRun);
 	loopFrames(foreground.image, part3_postArrivalFg, postArrivalShouldRun);
 
+	channel0.volume = 0.2;
 	audioPlay('../assets/audio/scene2/oldMan01.ogg', channel0);
 	await typeDialog ("Unnskyld meg, men er ikke du sjølveste julenissen?");
 	audioPlay('../assets/audio/scene2/oldMan02.ogg', channel0);
@@ -41,6 +44,7 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 
 	postArrivalShouldRun.isTrue = false;
 
+	channel0.volume = 0.5;
 	audioPlay('../assets/audio/scene2/departure.ogg', channel0);
 	await drawFrames(foreground.image, part4_departure);
 

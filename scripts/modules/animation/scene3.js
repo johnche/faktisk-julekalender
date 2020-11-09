@@ -20,6 +20,7 @@ export const scene3 = async ({ foreground, middleground, background }) => {
 	loopFrames(background.image, scene1_0_background, scene3LandscapeLoop);
 	await drawFrames(middleground.image, scene1_1_intro.slice(0, WINDLOOP_BEGIN));
 
+	channel1.volume = 0.2;
 	audioLoopStart('assets/audio/scene1/wind.ogg', channel1);
 	await drawFrames(middleground.image, scene1_1_intro.slice(WINDLOOP_BEGIN));
 
