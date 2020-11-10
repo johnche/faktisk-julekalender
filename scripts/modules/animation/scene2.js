@@ -10,7 +10,7 @@ export const part2_arrival = fetchAllFrames('scene2/2_arrival', 119);
 export const part3_postArrivalFg = fetchAllFrames('scene2/3_post_arrival/foreground', 14);
 export const part3_postArrivalMg = fetchAllFrames('scene2/3_post_arrival/middleground', 0);
 export const part3_postArrivalBg = fetchAllFrames('scene2/3_post_arrival/background', 11);
-export const part3_postArrivalDot = fetchAllFrames('scene2/3_post_arrival/dotdotdot', 20);
+export const part3_postArrivalDot = fetchAllFrames('scene2/3_post_arrival/dotdotdot', 27);
 export const part4_departure = fetchAllFrames('scene2/4_departure', 12);
 
 export const scene2 = async ({ foreground, middleground, background }) => {
