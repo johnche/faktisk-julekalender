@@ -15,12 +15,13 @@ export const scene3 = async ({ foreground, middleground, background }) => {
 	const channel0 = getAudioChannel(0);
 	const channel1 = getAudioChannel(1);
 
+	channel0.volume = 0.3;
 	audioPlay('../assets/audio/scene1/intro.ogg', channel0);
 	const scene3LandscapeLoop = {isTrue: true};
 	loopFrames(background.image, scene1_0_background, scene3LandscapeLoop);
 	await drawFrames(middleground.image, scene1_1_intro.slice(0, WINDLOOP_BEGIN));
 
-	channel1.volume = 0.2;
+	channel1.volume = 0.1;
 	audioLoopStart('assets/audio/scene1/wind.ogg', channel1);
 	await drawFrames(middleground.image, scene1_1_intro.slice(WINDLOOP_BEGIN));
 

@@ -14,6 +14,7 @@ export const scene1 = async ({ foreground, middleground, background }) => {
 	const channel0 = getAudioChannel(0);
 	const channel1 = getAudioChannel(1);
 
+	channel0.volume = 0.3;
 	audioPlay('../assets/audio/scene1/intro.ogg', channel0);
 	const scene1LandscapeLoop = {isTrue: true};
 	loopFrames(background.image, part0_background, scene1LandscapeLoop);
