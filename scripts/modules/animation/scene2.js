@@ -49,7 +49,12 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 		'Finn på noe sært'
 	];
 	const userChoice = await multipleChoice('Hvor kommer julen fra??', possibleChoices);
-	console.log('res', userChoice);
+	switch (userChoice) {
+		case possibleChoices[0]: await typeDialog('hmm ok'); break;
+		case possibleChoices[1]: await typeDialog('jaså ja'); break;
+		case possibleChoices[2]: await typeDialog('du mener, charles ives?'); break;
+		case possibleChoices[3]: await typeDialog('mjåååå'); break;
+	}
 
 	postArrivalShouldRun.isTrue = false;
 	await drawFrames(foreground.image, part3_postArrivalDot);
