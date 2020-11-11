@@ -2,7 +2,7 @@
 
 @font-face {
 	font-family: 'Apple][';
-	src: url('../assets/fonts/pr/PrintChar21.ttf')
+	src: url('../assets/fonts/pr/PrintChar21.ttf');
 }
 
 html {
@@ -24,6 +24,8 @@ body {
 	--pixel-size: 4;
 	--frame-duration: 100ms;
 	--size-multiplier: 2.2;
+	--canvas-width: 640px;
+	--canvas-height: 350px;
 }
 
 .pixelart {
@@ -85,8 +87,8 @@ canvas {
 	//height: calc(108px * var(--size-multiplier));
 
 	// 500px directly from index.html canvas width/height
-	width: calc(640px * var(--size-multiplier));
-	height: calc(350px * var(--size-multiplier));
+	width: calc(var(--canvas-width) * var(--size-multiplier));
+	height: calc(var(--canvas-height) * var(--size-multiplier));
 
 	//background-color: papayawhip;
 }

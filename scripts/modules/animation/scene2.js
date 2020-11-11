@@ -2,7 +2,7 @@ import { drawFrames, loopFrames, fetchAllFrames } from './utils.js';
 import { audioPlay, audioLoopStart, audioLoopStop } from '../audio/utils.js';
 import { getAudioChannel } from '../audio/index.js';
 import { sleep } from '../utils.js';
-import { typeDialog } from '../typography.js';
+import { multipleChoice, typeDialog } from '../typography.js';
 import { asyncForEach } from '../utils.js';
 
 export const part1_intro = fetchAllFrames('scene2/1_intro', 23);
@@ -41,7 +41,16 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 	audioPlay('../assets/audio/scene2/oldMan02.ogg', channel0);
 	await typeDialog ("Jammen så artig da. Siden du er her, så har du vel ikke tid til et lite spørsmål fra en gammel fis?");
 	audioPlay('../assets/audio/scene2/oldMan03.ogg', channel0);
-	await typeDialog ("Hvor kommer julen fra??");
+
+	const possibleChoices = [
+		'Saturnalia og romerriket',
+		'Blót og vikingene',
+		'Jesus, keiseren og paven',
+		'Finn på noe sært'
+	];
+	const userChoice = await multipleChoice('Hvor kommer julen fra??', possibleChoices);
+	console.log('res', userChoice);
+
 	postArrivalShouldRun.isTrue = false;
 	await drawFrames(foreground.image, part3_postArrivalDot);
 

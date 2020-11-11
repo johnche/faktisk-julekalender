@@ -22,9 +22,29 @@
     <canvas id="backgroundCanvas" class="center" width=640 height=350></canvas>
     <canvas id="middlegroundCanvas" class="center" width=640 height=350></canvas>
     <canvas id="foregroundCanvas" class="center" width=640 height=350></canvas>
+
+    <div id="multiple-choice-block" class="multiple-choice center-x">
+        <div>
+            <div id="option" class="multiple-choice-box clickable">
+                <p id="option0"></p>
+            </div>
+            <div id="option" class="multiple-choice-box clickable">
+                <p id="option1"></p>
+            </div>
+        </div>
+        <div>
+            <div id="option" class="multiple-choice-box clickable">
+                <p id="option2"></p>
+            </div>
+            <div id="option" class="multiple-choice-box clickable">
+                <p id="option3"></p>
+            </div>
+        </div>
+    </div>
+
     <button id="start-button" class="start pixelart center-x" style="top: 60vh;"></button>
 
-    <div id="text" class="text-box center-x">
+    <div id="text" class="text-box clickable center-x">
         <p id="typewriter" class="text-box-content noselect"></p>
     </div>
 

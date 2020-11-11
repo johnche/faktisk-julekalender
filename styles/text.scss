@@ -9,24 +9,53 @@
 	border-radius: 5px;
 	border-style: thick double;
 	border: 0.2rem outset #263373;
-	background-color: #202846C8;
+	background-color: #202846;
 	margin: 0;
+	display: none;
+
+	.text-box-content {
+		margin: 10px;
+		color: white;
+		font-family: 'Apple][';
+	}
 }
 
 .hide-dialog {
 	display: none;
 }
 
-.text-box-content {
-	margin: 10px;
-	color: white;
-	font-family: 'Apple][';
-}
-
-.text-box {
-	display: none;
+.clickable {
 	cursor: pointer;
 }
+
+.multiple-choice {
+	z-index: 900;
+	height: calc(100px * var(--size-multiplier)*1.5);
+	top: calc(50vh - 2.3*0.5*(100px*var(--size-multiplier)));
+	//background-color: lightblue;
+	display: none;
+	flex-direction: row;
+	justify-content: space-evenly;
+
+	.multiple-choice-box {
+		border-radius: 5px;
+		border-style: thick double;
+		border: 0.2rem outset #263373;
+		background-color: #202846;
+		margin: calc(7px*var(--size-multiplier)) calc(10px*var(--size-multiplier));
+		width: calc(0.2 * var(--canvas-width) * var(--size-multiplier));
+		height: calc(20px * var(--size-multiplier));
+		display: flex;
+		align-items: center;
+
+		p {
+			margin: 10px;
+			color: white;
+			font-family: 'Apple][';
+		}
+	}
+}
+
 
 .noselect {
 	-webkit-touch-callout: none;
