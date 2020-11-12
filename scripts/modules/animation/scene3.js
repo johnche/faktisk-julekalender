@@ -29,7 +29,7 @@ export const scene3 = async ({ foreground, middleground, background }) => {
 
 	const scene3RideLoop = {isTrue: true}
 	loopFrames(middleground.image, scene1_2_ride, scene3RideLoop);
-	await typeDialog ("Og med ny informasjon om den førkristne juletradisjonen, dro julenissen raskt videre på sin vei, for nå var han allerede forsinket i sin rute");
+	await typeDialog ("Og med ny informasjon om både den førkristne og kristne juletradisjonen, dro julenissen raskt videre på sin vei, for nå var han allerede forsinket i sin rute");
 	await typeDialog ("Hva vil stoppe julenissen neste gang? Vil han måtte kjempe mot nordavinden, eller tappert unngå enda et innkommende norwegian fly? Ja, for det er ikke bare julenissen som er på reisefot i juletiden, selv med Corona virus så er det så mange som (kom med noe statistikk) nordmenn som tar fly hjem hvert år, faktisk.")
 	await typeDialog ("Finn ut i neste FAKTISKE kalenderluke.")
 

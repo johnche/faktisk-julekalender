@@ -46,16 +46,49 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 		'Saturnalia og romerriket',
 		'Blót og vikingene',
 		'Jesus, keiseren og paven',
-		'Finn på noe sært'
+		'Julenissen reise'
 	];
 	const userChoice = await multipleChoice('Hvor kommer julen fra??', possibleChoices);
 	switch (userChoice) {
-		case possibleChoices[0]: await typeDialog('hmm ok'); break;
-		case possibleChoices[1]: await typeDialog('jaså ja'); break;
-		case possibleChoices[2]: await typeDialog('du mener, charles ives?'); break;
-		case possibleChoices[3]: await typeDialog('mjåååå'); break;
+		case possibleChoices[0]: 
+		//svar fra julenissen
+		await typeDialog('Jo, før vi feiret fødselen av jesus feiret romerne Saturnalia, en høytid hvor det ble ofret dyr foran saturntempelet med en påfølgende bankett for alle og enhver som levde i Roma.'); 
+		await typeDialog('Likt våre juletradisjoner ble det også gitt gaver, og alle som arbeidet hadde fri.'); 
+		//svar fra gamlefis
+		await typeDialog ("Nei, faktisk så lurte jeg egentlig på vikingenes julefeiring, jól, eller blót.")
+		await typeDialog('Dette var en offerfest i midten av vintersesongen (Vikingene feiret bare to sesonger, sommer og vinter). Dyr ble slaktet og øl drukket, noen ganger til siste dråpe.'); 
+		await typeDialog("Ved å ofre dyr håpet man på å tilfredstille Gudene, slik at de kunne bringe solen tilbake. Dette var tross alt den mørkeste tiden av året.")
+		break;
+		case possibleChoices[1]: 
+		//svar fra julenissen
+		await typeDialog('Jo, før vi feiret hva vi nå kaller jul feiret vikingene jól, eller blót.'); 
+		await typeDialog('Dette var en offerfest i midten av vintersesongen (Vikingene feiret bare to sesonger, sommer og vinter). Dyr ble slaktet og øl drukket, noen ganger til siste dråpe.'); 
+		await typeDialog("Ved å ofre dyr håpet man på å tilfredstille Gudene, slik at de kunne bringe solen tilbake. Dette var tross alt den mørkeste tiden av året.")
+		//svar fra gamlefis
+		await typeDialog ("Nei, faktisk så lurte jeg egentlig på den gamle romerske julefeiringen, Saturnalia")
+		await typeDialog ("Dette var en offerfest hvor dyr ble ofret foran saturntempelet med en påfølgende bankett for alle og enhver som levde i Roma");
+		await typeDialog('Likt våre juletradisjoner ble det også gitt gaver, og alle som arbeidet hadde fri.'); 
+		break;
+		case possibleChoices[2]: 
+		//svar fra julenissen
+		await typeDialog('Den kristne julen, som en feiring av da jesusbarnet ble født, var først feiret under den romerske keiser Constantine, ca 336 A.D i Roma. Ikke lenge etter, 350 A.D. gjorde Pave Julius det offisielt. '); 
+		await typeDialog ("Ettersom det ikke står noe i bibelen om når Jesus ble født valgte paven og Constantin den 25 desember som kristus sin offisielle fødselsdato.");
+		await typeDialog ("Siden flere hedenske høytider ble feiret rundt denne tiden, er det en stor sannsynlighet for at denne datoen ble valgt i et forsøk på å absorbere de hedenske skikkene med den kristne troen.");
+		//svar fra gamlefis
+		await typeDialog ("Nei, faktisk så lurte jeg egentlig på den gamle romerske julefeiringen, Saturnalia")
+		await typeDialog ("Dette var en offerfest hvor dyr ble ofret foran saturntempelet med en påfølgende bankett for alle og enhver som levde i Roma");
+		await typeDialog('Likt våre juletradisjoner ble det også gitt gaver, og alle som arbeidet hadde fri.'); 
+		break;
+		break;
+		case possibleChoices[3]: 
+		//svar fra julenissen
+		await typeDialog('Vi feirer jul for å ønske julenissen velkommen. Etter en lang, men lynraske reise er det fint å få et lite klapp på ryggen som takk for innsatsen..'); 
+		//svar fra gamlefis
+		await typeDialog ("Nei, faktisk så lurte jeg egentlig litt på om den kristne julefeiring");
+		await typeDialog('Den kristne julen, som en feiring av da jesusbarnet ble født, var først feiret under den romerske keiser Constantine, ca 336 A.D i Roma. Ikke lenge etter, 350 A.D. gjorde Pave Julius det offisielt. ');
+		await typeDialog ("Ettersom det ikke står noe i bibelen om når Jesus ble født valgte paven og Constantin den 25 desember som kristus sin offisielle fødselsdato.");
+		await typeDialog ("Siden flere hedenske høytider ble feiret rundt denne tiden, er det en stor sannsynlighet for at denne datoen ble valgt i et forsøk på å absorbere de hedenske skikkene med den kristne troen.");
 	}
-
 	postArrivalShouldRun.isTrue = false;
 	await drawFrames(foreground.image, part3_postArrivalDot);
 
