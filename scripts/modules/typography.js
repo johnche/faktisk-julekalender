@@ -5,7 +5,10 @@ import { getAudioChannel } from './audio/index.js';
 const messageBox = document.getElementById('text');
 const messageContent = document.getElementById('typewriter');
 
-const typewriter = async (message) => {
+const typewriter = async (character, message) => {
+	messageBox.style.backgroundColor = character.dialogBackground;
+	messageBox.style.borderColor = character.dialogBorder;
+
 	let impatient = false;
 	messageBox.onclick = () => impatient = true;
 
@@ -29,10 +32,11 @@ const typewriterCleanup = () => {
 	messageBox.onclick = null;
 }
 
-export const typeDialog = async (message) => {
+//export const typeDialog = async (message, boxColor='#202846', borderColor='#263373') => {
+export const typeDialog = async (character, message) => {
 	getAudioChannel(2).volume = 0.1;
 
-	await typewriter(message);
+	await typewriter(character, message);
 	await waitForClick(messageBox);
 	typewriterCleanup();
 };
@@ -40,8 +44,8 @@ export const typeDialog = async (message) => {
 const NUM_OPTIONS = 4;
 const options = [...Array(NUM_OPTIONS).keys()].map(i => document.getElementById(`option${i}`));
 const multipleChoiceBlock = document.getElementById('multiple-choice-block');
-export const multipleChoice = async (question, choices) => {
-	await typewriter(question);
+export const multipleChoice = async (character, question, choices) => {
+	await typewriter(character, question);
 	multipleChoiceBlock.style.display = 'flex';
 
 	return new Promise(resolve => {
