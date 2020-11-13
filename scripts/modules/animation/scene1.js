@@ -3,6 +3,7 @@ import { audioPlay, audioLoopStart, audioLoopStop } from '../audio/utils.js';
 import { getAudioChannel } from '../audio/index.js';
 import { WINDLOOP_BEGIN, WINDLOOP_END, LANDSCAPE_END } from '../constants.js';
 import { typeDialog } from '../typography.js';
+import { narrator, santa, oldMan } from './actors.js';
 
 export const part0_background = fetchAllFrames('scene1/0_background', 349);
 export const part1_intro = fetchAllFrames('scene1/1_intro', 14);
@@ -29,9 +30,9 @@ export const scene1 = async ({ foreground, middleground, background }) => {
 
 	const loopRide = {isTrue: true};
 	loopFrames(foreground.image, part2_ride, loopRide);
-	await typeDialog('Julenissen har endelig begynt på sin lange reise verden rundt, for å levere julegavene i god tid før julaften.');
-	await typeDialog('Som regel så er det en blanding av dårlig vær og sikte, eller et og annet utilregnelig flygende objekt som er den største tidstyven for julenissen');
-	await typeDialog('Men i år, i en liten bygd i Norge, er det faktisk noe litt annet som vil sette kjepper i reinsdyrene på hans vei...');
+	await typeDialog(narrator, 'Julenissen har endelig begynt på sin lange reise verden rundt, for å levere julegavene i god tid før julaften.');
+	await typeDialog(narrator, 'Som regel så er det en blanding av dårlig vær og sikte, eller et og annet utilregnelig flygende objekt som er den største tidstyven for julenissen');
+	await typeDialog(narrator, 'Men i år, i en liten bygd i Norge, er det faktisk noe litt annet som vil sette kjepper i reinsdyrene på hans vei...');
 	loopRide.isTrue = false;
 
 	audioLoopStop(channel0);

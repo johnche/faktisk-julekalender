@@ -48,7 +48,7 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 		'Jesus, keiseren og paven',
 		'Julenissen reise'
 	];
-	const userChoice = await multipleChoice(santa, 'Hvor kommer julen fra??', possibleChoices);
+	const userChoice = await multipleChoice(oldMan, 'Hvor kommer julen fra??', possibleChoices);
 	switch (userChoice) {
 		case possibleChoices[0]:
 			await typeDialog(santa, 'Jo, før vi feiret fødselen av jesus feiret romerne Saturnalia, en høytid hvor det ble ofret dyr foran saturntempelet med en påfølgende bankett for alle og enhver som levde i Roma.', '#DE302F');
