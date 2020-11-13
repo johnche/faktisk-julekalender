@@ -16,7 +16,7 @@ export const play = async () => {
 	const images = { foreground, middleground, background };
 
 	clearAll(images);
-	//await scene1(images);
+	await scene1(images);
 	await scene2(images);
 	await scene3(images);
 	audioStopAll();
