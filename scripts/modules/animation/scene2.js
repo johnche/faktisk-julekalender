@@ -107,6 +107,7 @@ export const scene2 = async ({ foreground, middleground, background }) => {
 			await typeDialog(oldMan, "Ettersom det ikke står noe i bibelen om når Jesus ble født valgte paven og Constantin den 25 desember som kristus sin offisielle fødselsdato.");
 			audioPlay('../assets/audio/scene2/oldMan/oldMan07.ogg', channel0);
 			await typeDialog(oldMan, "Siden flere hedenske høytider ble feiret rundt denne tiden, er det en stor sannsynlighet for at denne datoen ble valgt i et forsøk på å absorbere de hedenske skikkene inn i den kristne troen.");
+			break;
 	}
 	postArrivalShouldRun.isTrue = false;
 	await drawFrames(foreground.image, part3_postArrivalDot);
