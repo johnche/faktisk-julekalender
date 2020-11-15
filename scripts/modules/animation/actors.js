@@ -1,14 +1,14 @@
 export const narrator = {
-	dialogBackground: '#202846',
-	dialogBorder: '#263373'
+	dialogBackground: '#20284675',
+	dialogBorder: '#26337375'
 };
 
 export const santa = {
-	dialogBackground: '#6E2128',
-	dialogBorder: '#8A2A32'
+	dialogBackground: '#6E212875',
+	dialogBorder: '#8A2A3275'
 };
 
 export const oldMan = {
-	dialogBackground: '#301703',
-	dialogBorder: '#5c2c06'
+	dialogBackground: '#30170375',
+	dialogBorder: '#5c2c0675'
 };
